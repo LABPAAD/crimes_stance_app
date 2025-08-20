@@ -1,0 +1,121 @@
+:root {
+  --blue-marinho: #395fa1;
+  --blue-petroleo: #003c5f;
+  --blue-piscina: #97c6d3;
+  --blue-eletrico: #0f79ba;
+  --gray-dark: #1e293b;
+  --gray: #64748b;
+  --gray-light: #e2e8f0;
+  --white: #ffffff;
+  --white-ice: #f8fafc;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: var(--gray-dark);
+    --text: var(--white);
+    --card-bg: #334155;
+    --hover-bg: #475569;
+    --border: #475569;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: var(--white-ice);
+    --text: var(--gray-dark);
+    --card-bg: var(--white);
+    --hover-bg: var(--gray-light);
+    --border: var(--gray-light);
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: var(--blue-petroleo);
+  color: var(--white);
+  padding: 32px 16px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+  letter-spacing: 1px;
+}
+
+main {
+  flex: 1;
+  padding: 40px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.description {
+  max-width: 700px;
+  text-align: center;
+  font-size: 1.2em;
+  color: var(--gray);
+  margin-bottom: 40px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  text-decoration: none;
+  color: var(--text);
+}
+
+.card:hover {
+  background-color: var(--hover-bg);
+  transform: translateY(-4px);
+}
+
+.card.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.card h2 {
+  margin-top: 12px;
+  font-size: 1.3em;
+}
+
+.card p {
+  font-size: 0.95em;
+  color: var(--gray);
+}
+
+footer {
+  text-align: center;
+  padding: 16px;
+  font-size: 0.9em;
+  background-color: var(--blue-petroleo);
+  color: var(--white);
+}

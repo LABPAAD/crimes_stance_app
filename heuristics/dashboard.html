@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard - Operações Policiais</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/dashboard.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="back-btn">← Voltar</a>
+    <h1 id="datasetTitle">Dashboard</h1>
+    <p>Visualização interativa dos dados de operações policiais agrupadas por heurísticas.</p>
+  </header>
+
+  <main>
+    <section class="stats-cards" id="statsCards"></section>
+    <section class="charts" id="charts"></section>
+    <section class="chart-metric" id="metricSection" style="display:none;">
+      <h2>Comparativo por Métrica</h2>
+      <label for="metricSelector">Selecionar métrica:</label>
+      <select id="metricSelector">
+        <option value="pre">Precisão</option>
+        <option value="rev">Revocação</option>
+      </select>
+      <p id="metricDescription" class="metric-description"></p>
+      <canvas id="metricsChart"></canvas>
+    </section>
+  </main>
+
+  <footer>
+    LABPAAD / UFPI — Dados e heurísticas 2019–2024
+  </footer>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

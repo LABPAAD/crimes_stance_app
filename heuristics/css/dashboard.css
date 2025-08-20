@@ -1,0 +1,138 @@
+:root {
+  --blue-marinho: #395fa1;
+  --blue-petroleo: #003c5f;
+  --blue-piscina: #97c6d3;
+  --blue-eletrico: #0f79ba;
+  --text-light: #f8f9fa;
+  --text-dark: #1a1a1a;
+  --gray-soft: #e9ecef;
+  --card-bg: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--gray-soft);
+  color: var(--text-dark);
+}
+
+header {
+  background-color: var(--blue-petroleo);
+  color: var(--text-light);
+  padding: 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+header p {
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+  color: #dbe5f0;
+}
+
+.back-btn {
+  position: absolute;
+  left: 1rem;
+  top: 1.5rem;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  transition: background 0.2s ease;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+main {
+  padding: 2rem 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.stats-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.card {
+  background-color: var(--card-bg);
+  padding: 1.2rem 1.4rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  min-width: 230px;
+  flex: 1 1 220px;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-left: 5px solid var(--blue-eletrico);
+}
+
+.card strong {
+  font-size: 1.2rem;
+  color: var(--blue-petroleo);
+}
+
+.charts canvas {
+  max-width: 100%;
+  margin: 2rem auto;
+  display: block;
+}
+
+.metric-selector {
+  margin: 2rem 0 1rem;
+  text-align: center;
+}
+
+.metric-selector select {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.metric-description {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  color: #666;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer {
+  text-align: center;
+  padding: 1.2rem;
+  background-color: var(--blue-petroleo);
+  color: var(--text-light);
+  font-size: 0.85rem;
+  margin-top: 2rem;
+}
+
+canvas {
+  width: 100% !important;
+  max-width: 1000px;
+  height: 400px !important;
+  margin: 0 auto;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  canvas {
+    height: 300px !important;
+  }
+}
