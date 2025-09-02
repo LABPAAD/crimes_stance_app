@@ -2,29 +2,20 @@ const query = new URLSearchParams(window.location.search);
 const datasetKey = query.get('dataset');
 
 const datasetMap = {
-  todos_sem: {
-    title: "Todos eventos (sem transcrição)",
-    file: "no_transcription/videos_operations_combined.json"
+  todos: {
+    title: "Todos eventos",
+    file: "no_transcription/videos_operations_combined.json",
+    metric_cenario: "Todos eventos (sem transcrição)"
   },
-  esparsos_sem: {
-    title: "Eventos esparsos (sem transcrição)",
-    file: "no_transcription/videos_pre_2024.json"
+  esparsos: {
+    title: "Eventos esparsos",
+    file: "no_transcription/videos_pre_2024.json",
+    metric_cenario: "Eventos esparsos (sem transcrição)"
   },
-  alta_sem: {
-    title: "Alta repercussão (sem transcrição)",
-    file: "no_transcription/videos_2024_onwards.json"
-  },
-  todos_com: {
-    title: "Todos eventos (com transcrição)",
-    file: "transcription/videos_operations_combined.json"
-  },
-  esparsos_com: {
-    title: "Eventos esparsos (com transcrição)",
-    file: "transcription/videos_pre_2024.json"
-  },
-  alta_com: {
-    title: "Alta repercussão (com transcrição)",
-    file: "transcription/videos_2024_onwards.json"
+  alta: {
+    title: "Alta repercussão",
+    file: "no_transcription/videos_2024_onwards.json",
+    metric_cenario: "Alta repercussão (sem transcrição)"
   },
 };
 
@@ -61,7 +52,7 @@ fetch(`data/${config.file}`)
         `;
         metricSelector.addEventListener("change", () => {
           const selected = metricSelector.value;
-          renderMetricChart(metrics, config.title, selected);
+          renderMetricChart(metrics, config.metric_cenario, selected);
         });
 
         const desc = document.createElement("div");
@@ -76,7 +67,7 @@ fetch(`data/${config.file}`)
         canvas.id = "metricsChart";
         container.appendChild(canvas);
 
-        renderMetricChart(metrics, config.title, "pre");
+        renderMetricChart(metrics, config.metric_cenario, "pre");
       });
   })
   .catch(err => {

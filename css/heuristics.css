@@ -62,6 +62,7 @@ main {
   padding: 40px 16px;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
 }
 
 .cards {
