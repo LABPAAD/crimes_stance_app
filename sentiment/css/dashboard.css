@@ -1,0 +1,46 @@
+/* ===== Modal (popup) ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9990;
+}
+
+.modal-content {
+  background: #fff;
+  width: min(96vw, 980px);
+  max-height: 92vh;
+  overflow: auto;
+  border-radius: 12px;
+  padding: 16px 16px 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.2);
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 8px; right: 10px;
+  border: 0; background: transparent;
+  font-size: 28px; line-height: 1;
+  cursor: pointer; color: #475569;
+}
+
+.modal-controls {
+  display: flex; align-items: center; gap: 10px;
+  margin: 8px 0 12px;
+}
+
+
+#weekly-stacked-chart {
+  width: 100% !important;
+  max-width: 1100px;
+  height: 440px !important;
+  display: block;
+  margin: 0 auto;
+}
+@media (max-width: 600px) {
+  #weekly-stacked-chart { height: 340px !important; }
+}
