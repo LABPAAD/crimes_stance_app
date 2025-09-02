@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-M" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Análise de Percepção Pública</title>
+    <link rel="stylesheet" href="../css/heuristics.css" /> </head>
+<body>
+    <header>
+        <a href="../index.html" class="back-btn" aria-label="Voltar">← Voltar</a>
+        <h1>Análise de Percepção Pública</h1>
+        <p>Selecione um cenário para visualizar a análise de Aprovação, Desaprovação e Neutralidade.</p>
+    </header>
+
+    <main>
+        <div id="cards-container" class="cards">
+            </div>
+    </main>
+
+    <footer>
+        LABPAAD / UFPI — Análise de Percepção Pública
+    </footer>
+
+    <script>
+        // Script para gerar os cards dinamicamente
+        async function createDatasetCards() {
+            const response = await fetch('data/datasets.json');
+            const datasets = await response.json();
+            const container = document.getElementById('cards-container');
+
+            for (const key in datasets) {
+                const config = datasets[key];
+                const card = `
+                    <a href="dashboard.html?dataset=${key}" class="card">
+                        <div>📊</div>
+                        <h2>${config.title}</h2>
+                    </a>
+                `;
+                container.innerHTML += card;
+            }
+        }
+        createDatasetCards();
+    </script>
+</body>
+</html>

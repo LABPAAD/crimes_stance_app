@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard de Sentimento</title>
+
+  <link rel="stylesheet" href="../css/home.css">
+  <link rel="stylesheet" href="./css/dashboard.css">
+
+  <!-- Chart.js (para o gráfico de rosca) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+
+  <!-- Plotly (para métricas com barra de erro e semanal empilhado) -->
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="back-btn">← Voltar</a>
+    <h1 id="dashboard-title">A carregar...</h1>
+  </header>
+
+  <main>
+    <div id="stats-cards" class="stats-container cards"></div>
+
+    <div class="charts-container">
+
+      <!-- Distribuição de Sentimentos (permanece Chart.js) -->
+      <div class="chart-wrapper">
+        <h2>Distribuição de Sentimentos</h2>
+        <canvas id="sentiment-distribution-chart"></canvas>
+      </div>
+
+      <!-- Métricas com IC95% (Plotly) -->
+      <div class="chart-wrapper">
+        <h2>Métricas do Modelo (Intervalo de Confiança 95%)</h2>
+        <select id="metric-selector">
+          <option value="precision">Precisão</option>
+          <option value="recall">Revocação</option>
+          <option value="f1">F1-Score</option>
+        </select>
+        <div id="metrics-chart" style="width:100%;max-width:1000px;height:420px;margin:0 auto;"></div>
+      </div>
+
+      <!-- NOVO: Barras empilhadas por semana (Plotly) -->
+      <div class="chart-wrapper">
+        <h2>Volume Semanal por Classe</h2>
+        <div class="filters" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:8px 0 12px;">
+          <label>Início:
+            <input type="date" id="weekStartInput">
+          </label>
+          <label>Fim:
+            <input type="date" id="weekEndInput">
+          </label>
+          <button id="applyWeekFilter">Aplicar</button>
+          <button id="clearWeekFilter">Limpar</button>
+        </div>
+        <div id="weekly-stacked-chart" style="width:100%;max-width:1100px;height:440px;margin:0 auto;"></div>
+        <div id="week-drilldown" style="display:none;margin-top:10px;font-size:.95rem;color:#334155;"></div>
+      </div>
+
+      <!-- MODAL: Drill-down da Semana -->
+    <div id="weekModal" class="modal" style="display:none">
+        <div class="modal-content">
+            <button id="modalCloseBtn" class="modal-close" aria-label="Fechar">×</button>
+
+            <h3 id="weekModalTitle">Semana</h3>
+
+            <div class="modal-controls">
+            <label for="weekMetricSelect">Métrica:</label>
+            <select id="weekMetricSelect">
+                <option value="precision">Precisão</option>
+                <option value="recall">Revocação</option>
+                <option value="f1">F1-Score</option>
+            </select>
+            </div>
+
+            <div id="weekModalChart" style="width:100%;max-width:900px;height:420px;margin:0 auto;"></div>
+            <div id="weekModalStats" style="text-align:center;margin-top:8px;font-size:.95rem;color:#334155;"></div>
+        </div>
+    </div>
+
+
+    </div>
+  </main>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
